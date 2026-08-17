@@ -39,15 +39,11 @@ The root [`AGENTS.md`](./AGENTS.md) contains core operational guidelines, indepe
 | **[best-practice-research](./skills/best-practice-research)** | Source-backed best-practice research combining official external evidence and repo-local facts. |
 | **[code-review](./skills/code-review)** | Comprehensive code review assessing quality, security, and maintainability with severity-rated feedback. |
 | **[deep-interview](./skills/deep-interview)** | Intent-first requirements interview with high-value questions before planning or implementation to prevent scope drift. |
-| **[hatch-pet](./skills/hatch-pet)** | Create, repair, validate, visually QA, and package Codex-compatible v2 animated desktop pets (8x11 sprite atlas). |
 | **[init-harness](./skills/init-harness)** | Centralized workflow harness router for phase contracts, planning shapes, TDD, and QA rules. |
-| **[pdf](./skills/pdf)** | Read, create, render (Poppler), and verify PDF files programmatically with Python tools (`reportlab`, `pdfplumber`, `pypdf`). |
 | **[optimize-performance](./skills/optimize-performance)** | Evaluator-gated performance workflow with reproducible baselines, bounded hypotheses, reversible changes, and regression evidence. |
 | **[plan](./skills/plan)** | Native planning workflow supporting general, consensus, and strict high-risk modes. |
 | **[qa-execute](./skills/qa-execute)** | Execute frozen QA manifests with minimal context, machine-checked assertions, and evidence-only reporting. |
 | **[skill](./skills/skill)** | Local Codex skill lifecycle management (listing, inspecting, creating, editing, validating, and backing up skill folders). |
-| **[speech](./skills/speech)** | Spoken audio generation (TTS voiceovers, accessibility reads, IVR prompts) via OpenAI Audio API CLI. |
-| **[transcribe](./skills/transcribe)** | Audio transcription and speaker diarization via OpenAI Whisper/Audio CLI with structured JSON or text output. |
 
 ---
 
@@ -98,15 +94,11 @@ skills/
     ├── best-practice-research/
     ├── code-review/
     ├── deep-interview/
-    ├── hatch-pet/
     ├── init-harness/
-    ├── pdf/
     ├── optimize-performance/
     ├── plan/
     ├── qa-execute/
-    ├── skill/
-    ├── speech/
-    └── transcribe/
+    └── skill/
 ```
 
 ---
