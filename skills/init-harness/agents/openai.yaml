@@ -1,0 +1,4 @@
+interface:
+  display_name: "Init Harness"
+  short_description: "Use only when the user mentions harness."
+  default_prompt: "The user mentioned harness. Follow the init-harness skill entry, then the relevant harness/ phase or authority file."
