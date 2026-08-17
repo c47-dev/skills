@@ -1,11 +1,20 @@
 ---
-name: ai-slop-cleaner
-description: "Run an anti-slop cleanup/refactor/deslop workflow"
+name: simplify-code
+description: "Simplify existing code without changing behavior by removing duplication, dead code, needless abstraction, masking fallbacks, and unclear boundaries. Use for cleanup, refactor, deslop, or maintainability work; use optimize-performance when the primary outcome is a measurable performance gain."
 ---
 
-# AI Slop Cleaner Skill
+# Simplify Code
 
-Reduce AI-generated slop with a regression-tests-first, smell-by-smell cleanup workflow that preserves behavior and raises signal quality.
+Simplify existing code with a regression-tests-first, smell-by-smell workflow that
+preserves observable behavior and raises signal quality. “Slop” is a diagnosis
+label, not permission for a broad rewrite.
+
+## Routing Boundary
+
+- Use `optimize-performance` when the primary requested outcome is a measurable change in latency, throughput, memory, CPU, startup time, output size, or cost.
+- When a task has both a performance target and cleanup work, run `optimize-performance` first; follow with a separately scoped `simplify-code` pass only when the cleanup has its own acceptance criteria.
+- Use `code-review` for assessment-only work, and use `plan` before behavior, API, architecture, or cross-cutting changes.
+- Do not claim performance improvement from this skill. Incidental measurement may be reported as evidence, but it is not an optimization result.
 
 ## When to Use
 
@@ -20,6 +29,13 @@ Use this skill when:
 - This skill can accept a **file list scope** instead of a whole feature area.
 - When the caller provides a changed-files list, keep the cleanup strictly bounded to those files.
 - When used after another implementation workflow, run it only on that workflow's explicitly owned files unless the user broadens the scope.
+
+## Invariants and Non-goals
+
+- Preserve the requested behavior, public contracts, error semantics, security properties, and data boundaries.
+- Keep the scope to the requested files or owned diff; do not use cleanup as permission to redesign unrelated architecture or add dependencies.
+- Do not remove a compatibility path merely because it looks awkward; first classify whether it is masking failure or a documented, tested fail-safe.
+- If the only sound fix changes behavior or crosses a subsystem boundary, stop the cleanup pass and hand the finding to `plan` or the owning workflow.
 
 ## Procedure
 
@@ -36,6 +52,9 @@ Use this skill when:
    - Include fallback findings, classifications, and escalation status in the plan
    - Order fixes from safest/highest-signal to riskiest
    - Do not start coding until the cleanup plan is explicit
+
+   The plan must state the preserved behavior, scope in/out, smell order, test
+   evidence, and the condition that would stop or hand off the cleanup.
 
 3. **Inventory fallback-like code before editing**
    - Search the requested scope for fallback-like detection signals: quick hacks, temporary workaround, temporary fallback, just bypass, just skip, fallback if it fails, swallowed errors, silent defaults, broad compatibility shims, and duplicate alternate execution paths
@@ -70,6 +89,10 @@ Use this skill when:
    - Re-run targeted verification after each pass
    - Avoid bundling unrelated refactors into the same edit set
 
+   Do not combine a cleanup pass with an unmeasured performance change. If a
+   simplification is expected to improve performance, record that as a hypothesis
+   and hand the measurable claim to `optimize-performance`.
+
 6. **Run quality gates**
    - Regression tests stay green
    - Lint passes
@@ -87,6 +110,16 @@ Use this skill when:
    - UI/design reviewer checklist findings when visual/UI files were in scope
    - Remaining risks
    - Residual follow-ups or consciously deferred cleanup
+
+## Completion Gate
+
+Complete only when all of the following are true:
+
+- the requested behavior and contracts remain intact;
+- the diff is limited to the approved scope;
+- targeted regression tests and relevant quality checks pass;
+- every preserved fallback is classified and its evidence is recorded;
+- no unmeasured performance or architecture claim is presented as a result.
 
 ## Output Format
 
