@@ -56,10 +56,10 @@ When a sub-agent is justified, use this routing:
 
 | Task | Model | Reasoning | Boundary |
 | --- | --- | --- | --- |
-| Repository exploration | `gpt-5.6-luna` | `medium` | Bounded search, file/symbol mapping, and evidence collection only |
-| Code, unit, integration, contract, or API test execution | `gpt-5.6-luna` | `low` | Run existing tests and return exact commands, results, and failure evidence; do not diagnose or modify code/tests |
-| E2E testing through browser use or computer use | `google-antigravity/gemini-3.7-flash` or `gpt-5.6-luna` | `medium` | Use `browser:control-in-app-browser` for browser E2E; use computer use only for non-browser UI; execute the real flow and capture available runtime evidence |
-| Code review | `gpt-5.6-sol` | `high` | Run the named `/code-review` skill; review sub-agents remain read-only and do not create a second review authority |
+| Repository exploration | `gpt-6-luna` | `medium` | Bounded search, file/symbol mapping, and evidence collection only |
+| Code, unit, integration, contract, or API test execution | `gpt-6-luna` | `low` | Run existing tests and return exact commands, results, and failure evidence; do not diagnose or modify code/tests |
+| E2E testing through browser use or computer use | `google-antigravity/gemini-3.8-flash` or `gpt-6-luna` | `medium` | Use `browser:control-in-app-browser` for browser E2E; use computer use only for non-browser UI; execute the real flow and capture available runtime evidence |
+| Code review | `gpt-6.1-sol` | `high` | Run the named `/code-review` skill; review sub-agents remain read-only and do not create a second review authority |
 
 Deterministic test commands do not require a sub-agent merely to satisfy this table. Run them directly when delegation adds no value. If delegated, use the model above.
 

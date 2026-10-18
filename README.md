@@ -33,6 +33,7 @@ The root [`AGENTS.md`](./AGENTS.md) contains core operational guidelines, indepe
 | Skill | Description |
 |---|---|
 | **[simplify-code](./skills/simplify-code)** | Regression-tests-first cleanup/refactor workflow to remove duplication, dead code, needless abstraction, masking fallbacks, and unclear boundaries while preserving behavior. |
+| **[antigravity-subagent](./skills/antigravity-subagent)** | Continue two-way conversations with persistent Antigravity CLI workers through a filtered bridge. |
 | **[analyze](./skills/analyze)** | Read-only deep repository analysis returning ranked synthesis with explicit confidence and evidence-vs-inference boundaries. |
 | **[autopilot](./skills/autopilot)** | Bounded autonomous delivery workflow spanning clarified requirements, consensus planning, implementation, code review, and QA execution. |
 | **[autoresearch](./skills/autoresearch)** | Bounded research loop with an explicit validator, evidence-gated completion, and goal tracking. |
@@ -89,6 +90,7 @@ skills/
 └── skills/
     ├── simplify-code/
     ├── analyze/
+    ├── antigravity-subagent/
     ├── autopilot/
     ├── autoresearch/
     ├── best-practice-research/
